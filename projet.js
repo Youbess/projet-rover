@@ -15,6 +15,7 @@ let rover = {
     direction: 'N',
 	x: 0,
 	y: 0,
+	travelLog: [],
 };
 
 const turnLeft = (roverLeft) => {
@@ -60,6 +61,12 @@ const turnRight = (roverRight) => {
 };
 
 const moveForward = (roverForward) => {
+
+	roverForward.travelLog.push({
+		x: roverForward.x,
+		y: roverForward.y,
+	})
+
 	switch (roverForward.direction) {
 		case 'N':
 			roverForward.y--
