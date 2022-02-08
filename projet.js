@@ -13,6 +13,8 @@ let grid = [
 
 let rover = {
     direction: 'N',
+	x: 0,
+	y: 0,
 };
 
 const turnLeft = (roverLeft) => {
@@ -56,3 +58,20 @@ const turnRight = (roverRight) => {
 			break	
 	}
 };
+
+const moveForward = (roverForward) => {
+	switch (roverForward.direction) {
+		case 'N':
+			roverForward.y--
+			break
+		case 'W':
+			roverForward.x--
+			break
+		case 'S':
+			roverForward.y++
+			break
+		case 'E':
+			roverForward.x++
+			break
+	} 
+}
