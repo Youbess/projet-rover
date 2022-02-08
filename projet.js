@@ -75,3 +75,16 @@ const moveForward = (roverForward) => {
 			break
 	} 
 }
+
+const pilotRover = (commands) => {
+	commands = commands.split('') 
+	for (let i = 0; i < commands.length; i++) {
+		if (commands[i] === 'l') {
+			turnLeft(rover)
+		} else if (commands[i] === 'r') {
+			turnRight(rover)
+		} else if (commands[i] === 'f') {
+			moveForward(rover)
+		}
+	}
+}
