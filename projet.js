@@ -1,3 +1,6 @@
+const prompt = require('prompt');
+prompt.start();
+
 let grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -95,3 +98,18 @@ const pilotRover = (commands) => {
 		}
 	}
 }
+
+const promptCommands = () => {
+	prompt.get('commands', (err, res) => {
+		if (err) {
+			console.log(err)
+			return
+		}
+
+		pilotRover(res.commands)
+		console.log(rover)
+		promptCommands()
+	}) 
+}
+
+promptCommands()
