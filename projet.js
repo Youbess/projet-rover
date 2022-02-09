@@ -72,15 +72,35 @@ const moveForward = (roverForward) => {
 
 	switch (roverForward.direction) {
 		case 'N':
+			if (roverForward.y <= 0) {
+				console.log('you cannot move in this direction');
+				break
+			}
+		
 			roverForward.y--
 			break
 		case 'W':
+			if (roverForward.x <= 0) {
+				console.log('you cannot move in this direction');
+				break
+			}
+
 			roverForward.x--
 			break
 		case 'S':
+			if (roverForward.y >= 9) {
+				console.log('you cannot move in this direction')
+				break
+			}
+			
 			roverForward.y++
 			break
 		case 'E':
+			if (roverForward.x >= 9) {
+				console.log('you cannot move in this direction')
+				break
+			}
+
 			roverForward.x++
 			break
 	} 
