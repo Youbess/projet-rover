@@ -21,6 +21,17 @@ let rover = {
 	travelLog: [],
 };
 
+const drawGrid = (roverGrid) => {
+	for (let y = 0; y < 10; y++) {
+		for (let x = 0; x < 10; x++) {
+			grid[y][x] = ' '
+		}
+	}
+	
+	grid[roverGrid.y][roverGrid.x] = roverGrid.direction
+	console.table(grid)
+}
+
 const turnLeft = (roverLeft) => {
 
     switch (roverLeft.direction) {
@@ -175,9 +186,11 @@ const promptCommands = () => {
 		}
 
 		pilotRover(res.commands)
+		drawGrid(rover)
 		console.log(rover)
 		promptCommands()
 	}) 
 }
 
+drawGrid(rover)
 promptCommands()
