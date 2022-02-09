@@ -106,6 +106,49 @@ const moveForward = (roverForward) => {
 	} 
 }
 
+const moveBackward = (roverBackward) => {
+
+	roverBackward.travelLog.push({
+		x: roverBackward.x,
+		y: roverBackward.y,
+	})
+
+	switch (roverBackward.direction) {
+		case 'N':
+			if (roverBackward.y >= 9) {
+				console.log('you cannot move in this direction');
+				break
+			}
+		
+			roverBackward.y++
+			break
+		case 'W':
+			if (roverBackward.x >= 9) {
+				console.log('you cannot move in this direction');
+				break
+			}
+
+			roverBackward.x++
+			break
+		case 'S':
+			if (roverBackward.y <= 0) {
+				console.log('you cannot move in this direction')
+				break
+			}
+			
+			roverBackward.y--
+			break
+		case 'E':
+			if (roverBackward.x <= 0) {
+				console.log('you cannot move in this direction')
+				break
+			}
+
+			roverBackward.x--
+			break
+	} 
+}
+
 const pilotRover = (commands) => {
 	commands = commands.split('') 
 	for (let i = 0; i < commands.length; i++) {
@@ -115,7 +158,9 @@ const pilotRover = (commands) => {
 			turnRight(rover)
 		} else if (commands[i] === 'f') {
 			moveForward(rover)
-		}
+		} else if (commands[i] === 'b') {
+			moveBackward(rover)
+		} 
 	}
 }
 
