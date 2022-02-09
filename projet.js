@@ -160,7 +160,10 @@ const pilotRover = (commands) => {
 			moveForward(rover)
 		} else if (commands[i] === 'b') {
 			moveBackward(rover)
-		} 
+		} else {
+			console.error(commands[i], 'is not a valid command')
+			break
+		}
 	}
 }
 
